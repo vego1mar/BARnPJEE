@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="calculationBean" class="edu.barnpjee.demo.CalculationImpl"></bean>
+    <bean name="/demo/Calculation" class="org.springframework.remoting.caucho.BurlapServiceExporter">
+        <property name="service" ref="calculationBean"></property>
+        <property name="serviceInterface" value="edu.barnpjee.demo.Calculation"></property>
+    </bean>
+
+</beans>
