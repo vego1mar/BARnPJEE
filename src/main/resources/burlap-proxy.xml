@@ -2,11 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	   http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="burlapChatBean" class="edu.barnpjee.chat.ChatImpl"/>
-    <bean name="/chat/Chat" class="org.springframework.remoting.caucho.BurlapServiceExporter">
-        <property name="service" ref="burlapProxyBean"/>
+    <bean id="burlapProxyBean" class="org.springframework.remoting.caucho.BurlapProxyFactoryBean">
+        <property name="serviceUrl" value="http://localhost:8080/chat/Chat"/>
         <property name="serviceInterface" value="edu.barnpjee.chat.Chat"/>
     </bean>
 
